@@ -1,0 +1,8 @@
+# Required for python script
+# pandas
+# numpy
+datetime
+ 
+# Libraries for interacting with GCP services
+google-cloud-bigquery
+google-cloud-storage
