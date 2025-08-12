@@ -1,27 +1,29 @@
 # Bank_Position_Process
 
-Bank Loan and Investment Status Process in Google Cloud Platform
+**Automated Bank Loan and Investment Status Pipeline — Google Cloud Platform**
 
-This is an modified process from my previous real work project, to demonstrate the necessary codes to automate a process in Google Cloud Platform
+This repository contains a simplified, demonstration version of a real-world GCP project.
+It illustrates the structure, configurations, and code required to automate a bank loan and investment status process using **Google Cloud Platform** services.
 
-The purpose of files/folder:
+---
 
-1. scripts folder:
-   The python scripts in scripts folder are to use SQL in python to fetch data and populate target tables in Bigquery.
-   The real project will have more than 12 python scripts in that folder. However, for the demonstration purpose, we omit most of the python scripts for simplicity.
+## Repository Structure
 
-2. accp.yaml:
-   accp.yaml file is to tell accp pipeline the instruciton about the necessary information to build the image/container.
-   we mention accp.yaml file on accp pipeline initiation process.
+| File/Folder            | Purpose                                                                                                                                                                                                              |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`scripts/`**         | Python scripts containing SQL queries for extracting data and loading it into **BigQuery** target tables. <br>_Note: The production environment contains 12+ scripts. This demo includes only a subset for clarity._ |
+| **`accp.yaml`**        | Pipeline configuration file defining build instructions for the container image, including image name, build context, and other ACCP pipeline parameters. <br>_Referenced during pipeline initialization._           |
+| **`Dockerfile`**       | Image build specification defining the base image, system dependencies, and Python packages required to execute the scripts. <br>_Referenced in `accp.yaml`._                                                        |
+| **`requirements.txt`** | List of Python dependencies to be installed in the image environment. <br>_Referenced in the `Dockerfile`._                                                                                                          |
+| **`positions_dag.py`** | **Apache Airflow DAG** for orchestrating and scheduling the end-to-end process. References the container image built from the above files and defines execution logic and scheduling parameters.                     |
 
-3. Dockerfile:
-   Dockerfile has detailed info about how to set up the image, include the packges needed to run the python scripts.
-   Dockerfile is referenced in accp.yaml file
+---
 
-4. requirement.txt
-   listing all packages needed to install in the image.
-   requirement.txt is referenced in Dockerfile.
+## Workflow Overview
 
-5. positions_dag.py
-   dag file is uploaded to airflow to set up and schedule process in airflow.
-   Once the image is created based on files mentioned above, the image is referenced in this dag file.
+1. **Code and Configuration** — Python scripts, configuration files, and dependencies are stored in this repository.
+2. **Image Build** — The ACCP pipeline uses `accp.yaml` and `Dockerfile` to build a container image with all required dependencies.
+3. **Data Processing** — The container runs Python scripts to fetch, transform, and load data into BigQuery.
+4. **Orchestration** — Airflow triggers the container execution according to the schedule defined in `positions_dag.py`.
+
+---
