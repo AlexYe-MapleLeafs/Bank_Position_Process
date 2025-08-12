@@ -27,3 +27,5 @@ It illustrates the structure, configurations, and code required to automate a ba
 4. **Orchestration** — Airflow triggers the container execution according to the schedule defined in `positions_dag.py`.
 
 ---
+
+![Bank Position Process Diagram](/process_diagram.png)
