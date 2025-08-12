@@ -22,10 +22,10 @@ It illustrates the structure, configurations, and code required to automate a ba
 ## Workflow Overview
 
 1. **Code and Configuration** — Python scripts, configuration files, and dependencies are stored in this repository.
-2. **Image Build** — The ACCP pipeline uses `accp.yaml` and `Dockerfile` to build a container image with all required dependencies.
+2. **Image Build** — The ACCP pipeline uses `accp.yaml`, `Dockerfile` and `requirement.txt` to build a container image with all required dependencies.
 3. **Data Processing** — The container runs Python scripts to fetch, transform, and load data into BigQuery.
 4. **Orchestration** — Airflow triggers the container execution according to the schedule defined in `positions_dag.py`.
 
 ---
 
-![Bank Position Process Diagram](/process_diagram.png)
+![Bank Position Process Diagram](/position_process_diagram.png)
