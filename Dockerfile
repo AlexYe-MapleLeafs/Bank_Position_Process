@@ -1,6 +1,6 @@
 FROM gcr.io/deeplearning-platform-release/base-cpu:latest
  
-LABEL alexye <weibin.ye.leaf@hotmail.com>
+LABEL alexye <alex.yef@*****.com>
  
 RUN virtualenv /env -p python3.10
 ENV VIRTUAL_ENV /env
